@@ -6,4 +6,4 @@
 Fleecifer is a Minecraft mod developed for the Fabric/Quilt Loader. This mod replaces sheep behaviour, turning them hostile towards the player.  
 
 ## Mod Requirements  
-You only need the [Fabric](https://fabricmc.net)/[Quilt](https://quiltmc.org/) Loader.  
+You only need the [Fabric](https://fabricmc.net) or [Quilt](https://quiltmc.org/) Loader.  
