@@ -1,0 +1,15 @@
+{
+    "pack": {
+        "pack_format": 9,
+        "supported_formats": {
+            "min_inclusive": 9,
+            "max_inclusive": 2147483647
+        },
+        "description": [
+            {
+                "translate": "gui.fleecifer.resource_pack.fleecifer.description",
+                "color": "light_gray"
+            }
+        ]
+    }
+}

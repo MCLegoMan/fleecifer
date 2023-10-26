@@ -1,8 +1,9 @@
 package com.mclegoman.fleecifer.mixin;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.goal.TargetGoal;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.SheepEntity;
@@ -21,7 +22,8 @@ public abstract class SheepEntityMixin extends AnimalEntity {
 	@Inject(method = "initGoals", at = @At("RETURN"))
 	private void initGoals(CallbackInfo ci) {
 		this.getAttributeInstance(EntityAttributes.GENERIC_ARMOR).setBaseValue(8.0);
-		this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+		this.targetSelector.add(0, new TargetGoal<>(this, PlayerEntity.class, true));
 		this.goalSelector.add(0, new MeleeAttackGoal(this, 1.25, true));
+		this.goalSelector.add(1, new RevengeGoal(this).setGroupRevenge(SheepEntity.class));
 	}
 }
