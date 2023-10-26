@@ -8,7 +8,7 @@ Fleecifer is a Minecraft mod developed for the [Quilt Loader](https://quiltmc.or
 - [QSL](https://modrinth.com/mod/qsl)
     - Technically only requires the `resource_loader` module.
 
-# FAQ
+## FAQ
 - **I've got another mod that changes sheep behavior, is this compatible?**
     - Fleecifer has not been tested with other mods that change sheep behavior, you may experience issues under this circumstance.
 - **Is this compatible with Fabric Loader?**
