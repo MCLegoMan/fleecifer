@@ -21,3 +21,5 @@ Fleecifer is a Minecraft mod developed for the [Quilt Loader](https://quiltmc.or
     - Yes, you can use this mod in modpacks or videos.
 - **Will you port this mod to 1.x.x?**
     - I am unlikely to port to specific versions, as this mod was made for fun. However, other developers are free to port this mod, as long as they adhere to the conditions of the LGPL-3.0-or-later license.
+- **Can I remove the re-texturing of the sheep?**
+    - Yes, you can disable the Fleecifer resource pack on the resource pack screen.  
