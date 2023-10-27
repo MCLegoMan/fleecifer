@@ -24,15 +24,18 @@
 		"depends": [
 			{
 				"id": "quilt_loader",
-				"versions": ">=0.18.10"
+				"versions": "*"
 			},
 			{
 				"id": "quilt_resource_loader",
-				"versions": ">=6.0.0+1.20"
+				"versions": "*"
 			},
 			{
 				"id": "minecraft",
-				"versions": ">=1.20"
+				"versions": [
+					"1.19.x",
+					"1.20.x"
+				]
 			}
 		]
 	},
