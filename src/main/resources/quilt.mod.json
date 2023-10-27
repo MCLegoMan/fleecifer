@@ -15,7 +15,10 @@
 				"issues": "https://github.com/MCLegoMan/fleecifer/issues",
 				"sources": "https://github.com/MCLegoMan/fleecifer/"
 			},
-			"icon": "assets/fleecifer/icon.png"
+			"icon": "assets/fleecifer/icon.png",
+			"license": [
+				"LGPL-3.0-or-later"
+			]
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {

@@ -2,7 +2,7 @@
     Fleecifer
     Contributor(s): MCLegoMan
     Github: https://github.com/MCLegoMan/Fleecifer
-    License: GNU LGPLv3
+    License: LGPL-3.0-or-later
 */
 
 package com.mclegoman.fleecifer.common;
