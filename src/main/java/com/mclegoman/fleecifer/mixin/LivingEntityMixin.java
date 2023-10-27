@@ -1,3 +1,10 @@
+/*
+    Fleecifer
+    Contributor(s): MCLegoMan
+    Github: https://github.com/MCLegoMan/Fleecifer
+    License: GNU LGPLv3
+*/
+
 package com.mclegoman.fleecifer.mixin;
 
 import net.minecraft.entity.EntityType;
@@ -16,7 +23,7 @@ public abstract class LivingEntityMixin {
 	@Inject(method = "<init>", at = @At("TAIL"))
 	private void init(EntityType entityType, World world, CallbackInfo ci) {
 		LivingEntity livingEntity = (LivingEntity) (Object) this;
-		AttributeContainer container = livingEntity.getAttributes();
-		if (!container.hasAttribute(EntityAttributes.GENERIC_ATTACK_DAMAGE) && entityType.equals(EntityType.SHEEP)) ((AttributeContainerInterface) container).getCustom().putIfAbsent(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE, it -> {}));
+		AttributeContainer entityAttributes = livingEntity.getAttributes();
+		if (!entityAttributes.hasAttribute(EntityAttributes.GENERIC_ATTACK_DAMAGE) && entityType.equals(EntityType.SHEEP)) ((AttributeContainerInterface) entityAttributes).getCustom().putIfAbsent(EntityAttributes.GENERIC_ATTACK_DAMAGE, new EntityAttributeInstance(EntityAttributes.GENERIC_ATTACK_DAMAGE, (entityAttributeInstance) -> {}));
 	}
 }
