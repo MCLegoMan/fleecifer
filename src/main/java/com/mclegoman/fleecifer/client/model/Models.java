@@ -13,9 +13,11 @@ import net.minecraft.client.render.entity.model.*;
 import net.minecraft.util.Identifier;
 
 public class Models {
-	public static final EntityModelLayer sheepEyes = new EntityModelLayer(Identifier.of("minecraft", "sheep"), "eyes");
+	public static final EntityModelLayer sheepEyes = new EntityModelLayer(Identifier.of("fleecifer", "sheep"), "eyes");
+	public static final EntityModelLayer sheepEyesEmissive = new EntityModelLayer(Identifier.of("fleecifer", "sheep"), "eyes_emissive");
 	public static void init() {
 		EntityModelLayerRegistry.registerModelLayer(sheepEyes, () -> getSheepTexturedModelData(new Dilation(0.001F)));
+		EntityModelLayerRegistry.registerModelLayer(sheepEyesEmissive, () -> getSheepTexturedModelData(new Dilation(0.002F)));
 	}
 	public static TexturedModelData getSheepTexturedModelData(Dilation dilation) {
 		ModelData modelData = QuadrupedEntityModel.getModelData(12, dilation);
