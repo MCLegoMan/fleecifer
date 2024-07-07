@@ -20,10 +20,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.Identifier;
 
 public class EyesOverlayFeatureRenderer<T extends LivingEntity, M extends EntityModel<T>> extends FeatureRenderer<T, M> {
-	private final M model;
-	private final Identifier texture;
-	private final boolean emissive;
-
+	protected final M model;
+	protected final Identifier texture;
+	protected final boolean emissive;
 	public EyesOverlayFeatureRenderer(FeatureRendererContext<T, M> context, M model, Identifier texture, boolean emissive) {
 		super(context);
 		this.model = model;
@@ -34,7 +33,10 @@ public class EyesOverlayFeatureRenderer<T extends LivingEntity, M extends Entity
 		this.getContextModel().copyStateTo(this.model);
 		this.model.animateModel(entity, limbAngle, limbDistance, tickDelta);
 		this.model.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
-		VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.emissive ? RenderLayer.getEyes(this.texture) : RenderLayer.getEntityCutoutNoCull(this.texture));
+		VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.getRenderLayer(entity));
 		this.model.method_60879(matrices, vertexConsumer, this.emissive ? 15728640 : light, this.emissive ? OverlayTexture.DEFAULT_UV : LivingEntityRenderer.getOverlay(entity, 0.0F));
+	}
+	protected RenderLayer getRenderLayer(T entity) {
+		return this.emissive ? RenderLayer.getEyes(this.texture) : RenderLayer.getEntityCutoutNoCull(this.texture);
 	}
 }
