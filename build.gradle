@@ -1,0 +1,66 @@
+plugins {
+	id 'maven-publish'
+	alias libs.plugins.quilt.loom
+}
+
+base {
+	archivesName = project.archives_base_name
+}
+
+version = "$project.version+${libs.versions.minecraft.get()}"
+group = project.maven_group
+
+repositories {
+}
+
+loom {
+	mods {
+		"fleecifer" {
+			sourceSet("main")
+		}
+	}
+}
+
+dependencies {
+	minecraft libs.minecraft
+	mappings variantOf(libs.quilt.mappings) { classifier 'intermediary-v2' }
+	modImplementation libs.quilt.loader
+	//modImplementation libs.quilted.fabric.api
+	modImplementation fileTree(dir: 'libs', include: '*.jar')
+}
+
+processResources {
+	inputs.properties 'version': version, 'group': project.group
+
+	filesMatching('quilt.mod.json') {
+		expand 'version': version, 'group': project.group
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = 'UTF-8'
+	it.options.release = 21
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_21
+	targetCompatibility = JavaVersion.VERSION_21
+	withSourcesJar()
+}
+
+jar {
+	from('LICENSE') {
+		rename { "${it}_${base.archivesName.get()}" }
+	}
+}
+
+publishing {
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
+		}
+	}
+
+	repositories {
+	}
+}
