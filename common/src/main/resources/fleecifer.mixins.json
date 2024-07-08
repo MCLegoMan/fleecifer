@@ -1,15 +1,15 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.mclegoman.fleecifer.mixin",
+  "package": "com.mclegoman.fleecifer.core.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "SheepEntityMixin"
+	  "SheepEntityMixin"
   ],
   "client": [
-    "LayerDefinitionsMixin",
-    "ModelLayersAccessor",
-    "SheepEntityRendererMixin"
+	  "LayerDefinitionsMixin",
+	  "ModelLayersAccessor",
+	  "SheepEntityRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -5,7 +5,7 @@
     License: GNU LGPLv3
 */
 
-package com.mclegoman.fleecifer.client.model;
+package com.mclegoman.fleecifer.core.client.model;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.EntityModelLayer;

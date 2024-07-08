@@ -5,7 +5,7 @@
     License: GNU LGPLv3
 */
 
-package com.mclegoman.fleecifer.client.renderer;
+package com.mclegoman.fleecifer.core.client.renderer;
 
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayer;

@@ -5,11 +5,11 @@
     License: GNU LGPLv3
 */
 
-package com.mclegoman.fleecifer.mixin;
+package com.mclegoman.fleecifer.core.mixin;
 
 import com.google.common.collect.ImmutableMap;
-import com.mclegoman.fleecifer.client.model.EntityModelLayerRegistry;
-import com.mclegoman.fleecifer.client.model.ModelLayerImpl;
+import com.mclegoman.fleecifer.core.client.model.EntityModelLayerRegistry;
+import com.mclegoman.fleecifer.core.client.model.ModelLayerImpl;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.EntityModels;

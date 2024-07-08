@@ -5,9 +5,9 @@
     License: GNU LGPLv3
 */
 
-package com.mclegoman.fleecifer.client.model;
+package com.mclegoman.fleecifer.core.client.model;
 
-import com.mclegoman.fleecifer.mixin.ModelLayersAccessor;
+import com.mclegoman.fleecifer.core.mixin.ModelLayersAccessor;
 import net.minecraft.client.model.TexturedModelData;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 

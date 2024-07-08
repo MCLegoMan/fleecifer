@@ -1,4 +1,5 @@
 plugins {
+    id "io.github.pacifistmc.forgix" version "1.2.9"
     id 'dev.architectury.loom' version '1.7-SNAPSHOT' apply false
     id 'architectury-plugin' version '3.4-SNAPSHOT'
     id 'com.github.johnrengelman.shadow' version '8.1.1' apply false
@@ -55,4 +56,19 @@ subprojects {
         repositories {
         }
     }
+}
+
+forgix {
+    group = "${project.maven_group}.${project.archives_name}"
+    mergedJarName = "${project.archives_name}-${project.version}+${project.minecraft_version}.jar"
+    outputDir = "build/libs/merged"
+    neoforge {
+        projectName = "neoforge"
+        jarLocation = "build/libs/${project.archives_name}-neoforge-${project.version}.jar"
+    }
+    quilt {
+        projectName = "quilt"
+        jarLocation = "build/libs/${project.archives_name}-quilt-${project.version}.jar"
+    }
+    removeDuplicate "com.mclegoman.fleecifer.core"
 }

@@ -20,7 +20,7 @@
     "intermediate_mappings": "net.fabricmc:intermediary",
     "entrypoints": {
       "client_init": [
-        "com.mclegoman.fleecifer.client.ClientMainQuilt"
+        "com.mclegoman.fleecifer.quilt.client.ClientMainQuilt"
       ]
     },
     "depends": [
