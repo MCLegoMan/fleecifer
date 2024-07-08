@@ -5,7 +5,7 @@
     License: GNU LGPLv3
 */
 
-package com.mclegoman.fleecifer.core.mixin;
+package com.mclegoman.fleecifer.mixin;
 
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayers;

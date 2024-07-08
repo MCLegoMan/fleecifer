@@ -1,6 +1,5 @@
-package com.mclegoman.fleecifer.quilt.client;
+package com.mclegoman.fleecifer.client;
 
-import com.mclegoman.fleecifer.core.client.ClientMain;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
 

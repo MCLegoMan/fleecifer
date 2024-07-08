@@ -65,10 +65,11 @@ forgix {
     neoforge {
         projectName = "neoforge"
         jarLocation = "build/libs/${project.archives_name}-neoforge-${project.version}.jar"
+        additionalRelocate("com.mclegoman.fleecifer", "neoforge.com.mclegoman.fleecifer")
     }
     quilt {
         projectName = "quilt"
         jarLocation = "build/libs/${project.archives_name}-quilt-${project.version}.jar"
+        additionalRelocate("com.mclegoman.fleecifer", "quilt.com.mclegoman.fleecifer")
     }
-    removeDuplicate "com.mclegoman.fleecifer.core"
 }

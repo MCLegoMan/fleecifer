@@ -5,10 +5,10 @@
     License: GNU LGPLv3
 */
 
-package com.mclegoman.fleecifer.core.mixin;
+package com.mclegoman.fleecifer.mixin;
 
-import com.mclegoman.fleecifer.core.client.model.Models;
-import com.mclegoman.fleecifer.core.client.renderer.SheepEyesOverlayFeatureRenderer;
+import com.mclegoman.fleecifer.client.model.Models;
+import com.mclegoman.fleecifer.client.renderer.SheepEyesOverlayFeatureRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.render.entity.SheepEntityRenderer;
