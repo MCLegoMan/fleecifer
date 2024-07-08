@@ -1,0 +1,15 @@
+pluginManagement {
+    repositories {
+        maven { url "https://maven.quiltmc.org/repository/release" }
+        maven { url "https://maven.fabricmc.net/" }
+        maven { url "https://maven.neoforged.net/releases" }
+        maven { url "https://maven.architectury.dev/" }
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'fleecifer'
+
+include 'common'
+include 'neoforge'
+include 'quilt'

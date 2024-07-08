@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "${group}",
+    "id": "fleecifer",
+    "version": "${version}",
+    "metadata": {
+      "name": "Fleecifer",
+      "description": "Turns sheep hostile...",
+      "contributors": {
+        "MCLegoMan": "Author"
+      },
+      "contact": {
+        "homepage": "https://github.com/MCLegoMan/fleecifer",
+        "issues": "https://github.com/MCLegoMan/fleecifer/issues",
+        "sources": "https://github.com/MCLegoMan/fleecifer/"
+      },
+      "icon": "assets/fleecifer/icon.png"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "client_init": [
+        "com.mclegoman.fleecifer.client.ClientMainQuilt"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "version": "*"
+      },
+      {
+        "id": "quilt_base",
+        "version": "*"
+      },
+      {
+        "id": "minecraft",
+        "version": "~1.21"
+      }
+    ]
+  },
+  "mixin": [
+    "fleecifer.mixins.json"
+  ]
+}
