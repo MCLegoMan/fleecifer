@@ -37,6 +37,9 @@ public class EyesOverlayFeatureRenderer<T extends LivingEntity, M extends Entity
 		this.model.render(matrices, vertexConsumer, this.emissive ? 15728640 : light, this.emissive ? OverlayTexture.DEFAULT_UV : LivingEntityRenderer.getOverlay(entity, 0.0F));
 	}
 	protected RenderLayer getRenderLayer(T entity) {
-		return this.emissive ? RenderLayer.getEyes(this.texture) : RenderLayer.getEntityCutoutNoCull(this.texture);
+		return this.emissive ? RenderLayer.getEyes(this.getTexture(entity)) : RenderLayer.getEntityCutoutNoCull(this.getTexture(entity));
+	}
+	protected Identifier getTexture(T entity) {
+		return this.texture;
 	}
 }
