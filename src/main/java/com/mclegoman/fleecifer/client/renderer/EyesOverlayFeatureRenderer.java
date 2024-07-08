@@ -7,36 +7,36 @@
 
 package com.mclegoman.fleecifer.client.renderer;
 
+import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.LivingEntityRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRenderer;
-import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.RenderLayerParent;
+import net.minecraft.client.renderer.entity.layers.RenderLayer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
 
-public class EyesOverlayFeatureRenderer<T extends LivingEntity, M extends EntityModel<T>> extends FeatureRenderer<T, M> {
+public class EyesOverlayFeatureRenderer<T extends LivingEntity, M extends EntityModel<T>> extends RenderLayer<T, M> {
 	protected final M model;
-	protected final Identifier texture;
+	protected final ResourceLocation texture;
 	protected final boolean emissive;
-	public EyesOverlayFeatureRenderer(FeatureRendererContext<T, M> context, M model, Identifier texture, boolean emissive) {
+	public EyesOverlayFeatureRenderer(RenderLayerParent<T, M> context, M model, ResourceLocation texture, boolean emissive) {
 		super(context);
 		this.model = model;
 		this.texture = texture;
 		this.emissive = emissive;
 	}
-	public void render(MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
-		this.getContextModel().copyStateTo(this.model);
-		this.model.animateModel(entity, limbAngle, limbDistance, tickDelta);
-		this.model.setAngles(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
+	public void render(PoseStack matrices, MultiBufferSource vertexConsumers, int light, T entity, float limbAngle, float limbDistance, float tickDelta, float animationProgress, float headYaw, float headPitch) {
+		this.getParentModel().copyPropertiesTo(this.model);
+		this.model.prepareMobModel(entity, limbAngle, limbDistance, tickDelta);
+		this.model.setupAnim(entity, limbAngle, limbDistance, animationProgress, headYaw, headPitch);
 		VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.getRenderLayer(entity));
-		this.model.method_60879(matrices, vertexConsumer, this.emissive ? 15728640 : light, this.emissive ? OverlayTexture.DEFAULT_UV : LivingEntityRenderer.getOverlay(entity, 0.0F));
+		this.model.renderToBuffer(matrices, vertexConsumer, this.emissive ? 15728640 : light, this.emissive ? OverlayTexture.NO_OVERLAY : LivingEntityRenderer.getOverlayCoords(entity, 0.0F));
 	}
-	protected RenderLayer getRenderLayer(T entity) {
-		return this.emissive ? RenderLayer.getEyes(this.texture) : RenderLayer.getEntityCutoutNoCull(this.texture);
+	protected RenderType getRenderLayer(T entity) {
+		return this.emissive ? RenderType.eyes(this.texture) : RenderType.entityCutoutNoCull(this.texture);
 	}
 }

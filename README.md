@@ -1,4 +1,4 @@
-# Fleecifer (Quilt)
+# Fleecifer (NeoForge)
 Fleecifer is a Minecraft mod developed for the [Quilt Loader](https://quiltmc.org/). This mod replaces sheep behaviour, turning them hostile towards the player.
 
 ## Mod Requirements

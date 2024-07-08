@@ -7,23 +7,30 @@
 
 package com.mclegoman.fleecifer.client.model;
 
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.minecraft.client.model.*;
-import net.minecraft.client.render.entity.model.*;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.model.QuadrupedModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.resources.ResourceLocation;
 
 public class Models {
-	public static final EntityModelLayer sheepEyes = new EntityModelLayer(Identifier.of("fleecifer", "sheep"), "eyes");
-	public static final EntityModelLayer sheepEyesEmissive = new EntityModelLayer(Identifier.of("fleecifer", "sheep"), "eyes_emissive");
+	public static final ModelLayerLocation sheepEyes = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath("fleecifer", "sheep"), "eyes");
+	public static final ModelLayerLocation sheepEyesEmissive = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath("fleecifer", "sheep"), "eyes_emissive");
 	public static void init() {
-		EntityModelLayerRegistry.registerModelLayer(sheepEyes, () -> getSheepTexturedModelData(new Dilation(0.001F)));
-		EntityModelLayerRegistry.registerModelLayer(sheepEyesEmissive, () -> getSheepTexturedModelData(new Dilation(0.002F)));
+		EntityModelLayerRegistry.registerModelLayer(sheepEyes, () -> getSheepTexturedModelData(new CubeDeformation(0.001F)));
+		EntityModelLayerRegistry.registerModelLayer(sheepEyesEmissive, () -> getSheepTexturedModelData(new CubeDeformation(0.002F)));
 	}
-	public static TexturedModelData getSheepTexturedModelData(Dilation dilation) {
-		ModelData modelData = QuadrupedEntityModel.getModelData(12, dilation);
-		ModelPartData modelPartData = modelData.getRoot();
-		modelPartData.addChild("head", ModelPartBuilder.create().uv(0, 0).cuboid(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F), ModelTransform.pivot(0.0F, 6.0F, -8.0F));
-		modelPartData.addChild("body", ModelPartBuilder.create().uv(28, 8).cuboid(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F), ModelTransform.of(0.0F, 5.0F, 2.0F, 1.5707964F, 0.0F, 0.0F));
-		return TexturedModelData.of(modelData, 64, 32);
+	public static LayerDefinition getSheepTexturedModelData(CubeDeformation dilation) {
+		MeshDefinition meshdefinition = QuadrupedModel.createBodyMesh(12, dilation);
+		PartDefinition partdefinition = meshdefinition.getRoot();
+		partdefinition.addOrReplaceChild(
+			"head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -4.0F, -6.0F, 6.0F, 6.0F, 8.0F), PartPose.offset(0.0F, 6.0F, -8.0F)
+		);
+		partdefinition.addOrReplaceChild(
+			"body",
+			CubeListBuilder.create().texOffs(28, 8).addBox(-4.0F, -10.0F, -7.0F, 8.0F, 16.0F, 6.0F),
+			PartPose.offsetAndRotation(0.0F, 5.0F, 2.0F, (float) (Math.PI / 2), 0.0F, 0.0F)
+		);
+		return LayerDefinition.create(meshdefinition, 64, 32);
 	}
 }

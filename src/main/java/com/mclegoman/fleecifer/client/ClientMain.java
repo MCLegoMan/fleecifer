@@ -8,12 +8,12 @@
 package com.mclegoman.fleecifer.client;
 
 import com.mclegoman.fleecifer.client.model.Models;
-import org.quiltmc.loader.api.ModContainer;
-import org.quiltmc.qsl.base.api.entrypoint.client.ClientModInitializer;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.common.Mod;
 
-public class ClientMain implements ClientModInitializer {
-	@Override
-	public void onInitializeClient(ModContainer mod) {
+@Mod("fleecifer")
+public class ClientMain {
+	public ClientMain(IEventBus modEventBus) {
 		Models.init();
 	}
 }
