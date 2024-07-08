@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "fleecifer",
+  "version": "${version}",
+  "name": "Fleecifer",
+  "description": "Turns sheep hostile...",
+  "authors": [
+    "MCLegoMan"
+  ],
+  "contact": {
+    "homepage": "https://github.com/MCLegoMan/fleecifer",
+    "issues": "https://github.com/MCLegoMan/fleecifer/issues",
+    "sources": "https://github.com/MCLegoMan/fleecifer/"
+  },
+  "license": "LGPL-3.0-or-later",
+  "icon": "assets/fleecifer/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.mclegoman.fleecifer.client.ClientMainFabric"
+    ]
+  },
+  "mixins": [
+    "fleecifer.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": "~1.21"
+  }
+}

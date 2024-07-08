@@ -11,5 +11,6 @@ pluginManagement {
 rootProject.name = 'fleecifer'
 
 include 'common'
-include 'neoforge'
 include 'quilt'
+include 'fabric'
+include 'neoforge'

@@ -72,4 +72,9 @@ forgix {
         jarLocation = "build/libs/${project.archives_name}-quilt-${project.version}.jar"
         additionalRelocate("com.mclegoman.fleecifer", "quilt.com.mclegoman.fleecifer")
     }
+    fabric {
+        projectName = "fabric"
+        jarLocation = "build/libs/${project.archives_name}-fabric-${project.version}.jar"
+        additionalRelocate("com.mclegoman.fleecifer", "fabric.com.mclegoman.fleecifer")
+    }
 }

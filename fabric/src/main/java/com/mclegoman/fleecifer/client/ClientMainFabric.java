@@ -7,12 +7,11 @@
 
 package com.mclegoman.fleecifer.client;
 
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.fml.common.Mod;
+import net.fabricmc.api.ClientModInitializer;
 
-@Mod(value = "fleecifer", dist = Dist.CLIENT)
-public final class ClientMainNeoForge {
-    public ClientMainNeoForge() {
+public final class ClientMainFabric implements ClientModInitializer {
+    @Override
+    public void onInitializeClient()  {
         ClientMain.init();
     }
 }
