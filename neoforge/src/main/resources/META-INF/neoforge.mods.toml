@@ -15,14 +15,14 @@ description = '''Turns sheep hostile...'''
 [[dependencies.fleecifer]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.0,)"
+versionRange = "[21.3,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.fleecifer]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21,)"
+versionRange = "[1.21.3,)"
 ordering = "NONE"
 side = "BOTH"
 

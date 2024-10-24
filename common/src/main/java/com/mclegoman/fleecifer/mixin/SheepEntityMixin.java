@@ -30,7 +30,7 @@ public abstract class SheepEntityMixin extends Animal {
 	}
 	@Inject(method = "createAttributes", at = @At("RETURN"), cancellable = true)
 	private static void fleecifer$createAttributes(CallbackInfoReturnable<AttributeSupplier.Builder> cir) {
-		cir.setReturnValue(cir.getReturnValue().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 35.0).add(Attributes.MOVEMENT_SPEED, 0.23000000417232513).add(Attributes.ATTACK_DAMAGE, 3.0).add(Attributes.ARMOR, 2.0).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE));
+		cir.setReturnValue(cir.getReturnValue().add(Attributes.MAX_HEALTH, 20.0).add(Attributes.FOLLOW_RANGE, 35.0).add(Attributes.ATTACK_DAMAGE, 3.0).add(Attributes.ARMOR, 2.0).add(Attributes.SPAWN_REINFORCEMENTS_CHANCE));
 	}
 	@Inject(method = "registerGoals", at = @At("RETURN"))
 	private void fleecifer$initGoals(CallbackInfo ci) {

@@ -9,7 +9,8 @@
   "client": [
 	  "LayerDefinitionsMixin",
 	  "ModelLayersAccessor",
-	  "SheepEntityRendererMixin"
+	  "SheepEntityRendererMixin",
+	  "MinecraftClientMixin"
   ],
   "injectors": {
     "defaultRequire": 1
