@@ -10,25 +10,23 @@ package com.mclegoman.fleecifer.mixin;
 import com.google.common.collect.ImmutableMap;
 import com.mclegoman.fleecifer.client.model.EntityModelLayerRegistry;
 import com.mclegoman.fleecifer.client.model.ModelLayerImpl;
-import net.minecraft.client.model.TexturedModelData;
-import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.EntityModels;
+import net.minecraft.client.model.geom.LayerDefinitions;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshTransformer;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-import java.util.Iterator;
 import java.util.Map;
 
-@Mixin(EntityModels.class)
+@Mixin(LayerDefinitions.class)
 public abstract class LayerDefinitionsMixin {
-	@Inject(method = "getModels", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap$Builder;build()Lcom/google/common/collect/ImmutableMap;", remap = false), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
-	private static void fleecifer$registerModelData(CallbackInfoReturnable<Map<EntityModelLayer, TexturedModelData>> cir, ImmutableMap.Builder builder, TexturedModelData texturedModelData, TexturedModelData texturedModelData2, TexturedModelData texturedModelData3, TexturedModelData texturedModelData4, TexturedModelData texturedModelData5, TexturedModelData texturedModelData6, TexturedModelData texturedModelData7, TexturedModelData texturedModelData8, TexturedModelData texturedModelData9, TexturedModelData texturedModelData10, TexturedModelData texturedModelData11, TexturedModelData texturedModelData12, TexturedModelData texturedModelData13, TexturedModelData texturedModelData14, TexturedModelData texturedModelData15, TexturedModelData texturedModelData16, TexturedModelData texturedModelData17, TexturedModelData texturedModelData18, TexturedModelData texturedModelData19, TexturedModelData texturedModelData20, TexturedModelData texturedModelData21, TexturedModelData texturedModelData22, TexturedModelData texturedModelData23, TexturedModelData texturedModelData24, TexturedModelData texturedModelData25) {
-		Iterator var2 = ModelLayerImpl.layers.entrySet().iterator();
-		while(var2.hasNext()) {
-			Map.Entry<EntityModelLayer, EntityModelLayerRegistry.LayerDefinitionProvider> entry = (Map.Entry)var2.next();
+	@Inject(method = "createRoots", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap$Builder;build()Lcom/google/common/collect/ImmutableMap;", remap = false), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+	private static void fleecifer$registerModelData(CallbackInfoReturnable<Map<ModelLayerLocation, LayerDefinition>> cir, ImmutableMap.Builder<ModelLayerLocation, LayerDefinition> builder, LayerDefinition layerDefinition, LayerDefinition layerDefinition2, LayerDefinition layerDefinition3, LayerDefinition layerDefinition4, LayerDefinition layerDefinition5, LayerDefinition layerDefinition6, LayerDefinition layerDefinition7, LayerDefinition layerDefinition8, MeshTransformer meshTransformer, LayerDefinition layerDefinition9, LayerDefinition layerDefinition10, LayerDefinition layerDefinition11, LayerDefinition layerDefinition12, LayerDefinition layerDefinition13, LayerDefinition layerDefinition14, LayerDefinition layerDefinition15, LayerDefinition layerDefinition16, LayerDefinition layerDefinition17, LayerDefinition layerDefinition18, LayerDefinition layerDefinition19, LayerDefinition layerDefinition20, LayerDefinition layerDefinition21, LayerDefinition layerDefinition22, LayerDefinition layerDefinition23, LayerDefinition layerDefinition24, LayerDefinition layerDefinition25, LayerDefinition layerDefinition26, LayerDefinition layerDefinition27, LayerDefinition layerDefinition28, LayerDefinition layerDefinition29, LayerDefinition layerDefinition30, LayerDefinition layerDefinition31, LayerDefinition layerDefinition32, LayerDefinition layerDefinition33, LayerDefinition layerDefinition34, LayerDefinition layerDefinition35, LayerDefinition layerDefinition36, LayerDefinition layerDefinition37, LayerDefinition layerDefinition38, LayerDefinition layerDefinition39, LayerDefinition layerDefinition40, LayerDefinition layerDefinition41, LayerDefinition layerDefinition42, LayerDefinition layerDefinition43, LayerDefinition layerDefinition44, LayerDefinition layerDefinition45, LayerDefinition layerDefinition46, LayerDefinition layerDefinition47, LayerDefinition layerDefinition48, LayerDefinition layerDefinition49, LayerDefinition layerDefinition50, LayerDefinition layerDefinition51, MeshTransformer meshTransformer2, MeshTransformer meshTransformer3, MeshTransformer meshTransformer4, LayerDefinition layerDefinition52, LayerDefinition layerDefinition53, LayerDefinition layerDefinition54, LayerDefinition layerDefinition55, LayerDefinition layerDefinition56) {
+		for (Map.Entry<ModelLayerLocation, EntityModelLayerRegistry.LayerDefinitionProvider> entry : ModelLayerImpl.layers.entrySet()) {
 			builder.put(entry.getKey(), entry.getValue().createLayerDefinition());
 		}
 	}

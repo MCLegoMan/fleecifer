@@ -7,16 +7,15 @@
 
 package com.mclegoman.fleecifer.client.util;
 
-import com.mclegoman.perspective.client.textured_entity.TexturedEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.Identifier;
+import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.resources.ResourceLocation;
 
 public class PerspectiveCompat {
 	public static boolean installed;
 	public static boolean isPerspectiveInstalled() {
 		return installed;
 	}
-	public static Identifier getPerspectiveTexturedEntitySheepEyesTexture(LivingEntity entity, String entity_type, String suffix, Identifier fallback) {
-		return TexturedEntity.getTexture(entity, entity_type, suffix, fallback);
+	public static ResourceLocation getPerspectiveTexturedEntitySheepEyesTexture(LivingEntityRenderState livingEntity, String entity_type, String suffix, ResourceLocation fallback) {
+		return fallback;//TexturedEntity.getTexture(livingEntity, entity_type, suffix, fallback);
 	}
 }
